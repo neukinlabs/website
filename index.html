@@ -3,31 +3,265 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Neukin AB — Website coming soon.">
   <title>Neukin Labs</title>
+  <meta name="description"
+        content="Neukin Labs">
+  <link rel="icon" href="assets/favicon.ico">
+
   <style>
-    * { box-sizing: border-box; }
-    html, body { margin: 0; min-height: 100%; }
-    body {
-      min-height: 100vh;
-      min-height: 100dvh;
-      display: grid;
-      place-items: center;
-      padding: 24px;
-      background: #fff;
-      color: #111;
-      font-family: "Lucida Console", "Lucida Sans Typewriter", Monaco, monospace;
-      text-align: center;
+    :root {
+      --background: #ffffff;
+      --foreground: #111111;
+      --muted: #666666;
+      --border: #e5e5e5;
+      --accent: #ff9500;
+      --max-width: 1080px;
     }
-    main { width: 100%; }
-    h1 { margin: 0 0 18px; font-size: 1.5rem; font-weight: 700; line-height: 1.2; }
-    p { margin: 0; font-size: 1.125rem; font-weight: 400; line-height: 1.2; }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--background);
+      color: var(--foreground);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: var(--accent);
+    }
+
+    .container {
+      width: min(90%, var(--max-width));
+      margin: 0 auto;
+    }
+
+    header {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 28px 0;
+    }
+
+    .logo {
+      width: 150px;
+      height: auto;
+      display: block;
+    }
+
+    nav {
+      display: flex;
+      gap: 32px;
+      font-size: 14px;
+    }
+
+    .banner {
+      padding: 140px 0 160px;
+    }
+
+    h1 {
+      max-width: 850px;
+      font-size: clamp(38px, 6vw, 72px);
+      line-height: 1.08;
+      letter-spacing: -0.05em;
+      font-weight: 600;
+      margin: 24px 0;
+    }
+
+    .banner-description {
+      max-width: 560px;
+      font-size: 19px;
+      color: var(--muted);
+    }
+
+    /* SECTIONS */
+
+    section.content {
+      padding: 100px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .section-grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 60px;
+    }
+
+    .section-label {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+    }
+
+    h2 {
+      font-size: clamp(26px, 3.5vw, 40px);
+      line-height: 1.2;
+      letter-spacing: -0.035em;
+      font-weight: 500;
+      margin: 0 0 24px;
+    }
+
+    .section-text {
+      max-width: 650px;
+      font-size: 18px;
+      color: var(--muted);
+    }
+
+    footer {
+      padding: 40px 0;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 700px) {
+      .header-inner {
+        align-items: flex-start;
+        gap: 24px;
+      }
+
+      .logo {
+        width: 110px;
+      }
+
+      nav {
+        gap: 16px;
+      }
+
+      .banner {
+        padding: 100px 0;
+      }
+
+      .section-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      section.content {
+        padding: 70px 0;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+      }
+    }
   </style>
 </head>
+
 <body>
+
+  <header>
+    <div class="container header-inner">
+      <a href="#" aria-label="Neukin home">
+        <img
+          class="logo"
+          src="assets/neukin-black.svg"
+          alt="Neukin">
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="#helix1">HELIX 1</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
   <main>
-    <h1>Neukin Labs</h1>
-    <p>Website coming soon.</p>
+
+    <div class="container">
+      <section class="banner">
+        <h1>
+          Test at the speed of software development.
+        </h1>
+        <p class="banner-description">
+          Modular, CLI-first deterministic test systems for embedded controllers.
+          Built for modern, agentic test engineering workflows.
+        </p>
+      </section>
+    </div>
+
+    <section id="helix1" class="content">
+      <div class="container section-grid">
+        <div class="section-label">
+          HELIX 1
+        </div>
+        <div>
+          <h2>
+            Compute at the core. Open protocols at the edge.
+          </h2>
+          <p class="section-text">
+            Helix 1 is a compute carrier board. Gigabit Ethernet API on the host side.
+            COTS or custom I/O daughtercards connected via DIN 41612 Type C connector.
+            Multiplexed GPIOs support digital and analog I/O, SPI, CAN, PWM, and more.
+          </p>
+          <p class="section-text">
+            Test system configuration as code. Tests as code.
+            Access raw GPIOs and peripherals through a minimal software stack you download on <a href="https://github.com/neukinlabs/neucom" style="text-decoration: underline;">GitHub</a>.
+            Fewer abstractions with more control. No GUI required.
+          </p>
+          <p class="section-text">
+            Need more I/O? Network multiple Helix 1s in a leader/follower configuration.
+            Gigabit Ethernet carrier-to-carrier backbone with gPTP synchronization and Time-Sensitive Networking (TSN) for
+            bounded latency communication.
+            Scale I/O without redesigning the test system.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="content">
+      <div class="container section-grid">
+        <div class="section-label">
+          Contact
+        </div>
+        <div>
+          <h2>
+            Can Neukin work for me?
+          </h2>
+          <p class="section-text">
+            Email <a href="mailto:neukinlabs.voyage602@slmail.me" style="text-decoration: underline;">neukinlabs.voyage602@slmail.me</a>.
+            We're looking for an embedded development team interested in a pilot project. The end result will be a fully integrated
+            test system using one or multiple custom daughtercards for your specific DUT verification needs.
+          </p>
+        </div>
+      </div>
+    </section>
+
   </main>
+
+  <footer>
+    <div class="container">
+      © <span id="year"></span> NEUKIN AB
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
 </body>
 </html>
