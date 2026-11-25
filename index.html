@@ -139,6 +139,17 @@
       font-size: 13px;
     }
 
+    .product-image {
+      display: block;
+      width: 100%;
+      height: auto;
+      margin-top: 24px;
+    }
+
+    .section-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+
     @media (max-width: 700px) {
       .header-inner {
         align-items: flex-start;
@@ -206,8 +217,11 @@
 
     <section id="helix1" class="content">
       <div class="container section-grid">
-        <div class="section-label">
-          HELIX 1
+        <div>
+          <div class="section-label">HELIX 1</div>
+          <img class="product-image"
+               src="assets/Helix1.png"
+               alt="Neukin Helix 1 compute carrier board">
         </div>
         <div>
           <h2>
